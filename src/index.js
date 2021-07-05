@@ -1,3 +1,9 @@
 module.exports = function check(str, bracketsConfig) {
-  // your solution
+  if (str.lrngth % 2 !== 0) return false;
+  let flat = bracketsConfig.flat();
+  while (flat) {
+    let expr = flat.slice(2);
+    cinsile.log(expr);
+  }
+  return true;
 }
