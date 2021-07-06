@@ -1,20 +1,14 @@
-//module.exports = 
-function check(str, bracketsConfig) {
-  console.log(str.length % 2);
-  if (str.length % 2 !== 0) return false;
-  let flat = bracketsConfig.flat().join('');
-  console.log(flat);
-  while (flat) {
-    let expr = flat.slice(2);
-    if (str.lastIndexOf('(') === -1)
-      console.log(str.lastIndexOf('('));
-    console.log(str.lastIndexOf('('));
-    flat = expr;
-    console.log(expr);
+module.exports = function check(str, bracketsConfig) {
+  if (str.length % 2 > 0) return false;
+
+  let strLength = str.length;
+  let brLength = bracketsConfig.length;
+  
+  for(let j = 0; j < strLength / 2; j++) {
+    //one pair one time
+    for (let i = 0; i < brLength; i++) {
+      str = str.replace(bracketsConfig[i].join(''), '');
+    }
   }
-  return true;
+  return str.length > 0 ? false : true;
 }
-
-//const config2 = [['(', ')'], ['[', ']']];
-
-//check('((()))()', config2);
